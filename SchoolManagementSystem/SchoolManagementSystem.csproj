@@ -70,6 +70,7 @@
   <ItemGroup>
     <Content Include="Admin\AdminHome.aspx" />
     <Content Include="Admin\AddClass.aspx" />
+    <Content Include="Admin\ClassFees.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
@@ -210,6 +211,13 @@
     </Compile>
     <Compile Include="Admin\AddClass.aspx.designer.cs">
       <DependentUpon>AddClass.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ClassFees.aspx.cs">
+      <DependentUpon>ClassFees.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ClassFees.aspx.designer.cs">
+      <DependentUpon>ClassFees.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\CommonFn.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
