@@ -11,7 +11,7 @@
         <h3 class="text-center">Add Teacher</h3>
 
         <div class="row mb-3 mr-lg-5 ml-lg-5 mt-md-5">
-            <div class="col-md-6">
+            <div class="col-md-8">
                 <label for="txtName">Name</label>
                 <asp:TextBox ID="txtName" runat="server" CssClass="form-control" placeholder="Enter Name" required="True">
                 </asp:TextBox>
@@ -20,7 +20,7 @@
                 </asp:RegularExpressionValidator>
             </div>
 
-            <div class="col-md-6">
+            <div class="col-md-8">
                 <label for="txtDoB">
                     Date of Birth
                 </label>
@@ -29,7 +29,7 @@
         </div>
 
         <div class="row mb-3 mr-lg-5 ml-lg-5 mt-md-5">
-            <div class="col-md-6">
+            <div class="col-md-8">
                 <label for="ddlGender">Gender</label>
                 <asp:DropDownList ID="ddlGender" runat="server" CssClass="form-control">
                     <asp:ListItem Value="0">Select Gender</asp:ListItem>
@@ -42,7 +42,7 @@
                 </asp:RequiredFieldValidator>
             </div>
 
-            <div class="col-md-6">
+            <div class="col-md-8">
                 <label for="txtMobile">
                     Mobile
                 </label>
@@ -55,7 +55,7 @@
         </div>
 
         <div class="row mb-3 mr-lg-5 ml-lg-5 mt-md-5">
-            <div class="col-md-6">
+            <div class="col-md-8">
                 <label for="txtEmail">Email</label>
                 <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control" placeholder="Enter Email" required="True" TextMode="Email">
                 </asp:TextBox>
@@ -70,7 +70,7 @@
             </div>
         </div>
         <div class="row mb-3 mr-lg-5 ml-lg-5 mt-md-5">
-            <div class="col-md-6">
+            <div class="col-md-8">
                 <label for="txtAdress">
                     Adress
                 </label>
@@ -85,7 +85,7 @@
         </div>
 
         <div class="row mb-3 mr-lg-5 ml-lg-5 mt-md-5">
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <asp:GridView ID="GridView1" runat="server" CssClass="table table-hover table-bordered" EmptyDataText="No record to display!"
                     AutoGenerateColumns="False" AllowPaging="True" PageSize="4" OnPageIndexChanging="GridView1_PageIndexChanging" DataKeyNames="TeacherId"
                     OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowEditing="GridView1_RowEditing"
@@ -97,7 +97,7 @@
                         <asp:TemplateField HeaderText="Name">
                             <EditItemTemplate>
                                 <asp:TextBox ID="txtName" runat="server" Text='<%# Eval("Name") %>' CssClass="form-control"
-                                    Width="100px"></asp:TextBox>
+                                    Width="100px" TextMode="MultiLine"></asp:TextBox>
                             </EditItemTemplate>
                             <ItemTemplate>
                                 <asp:Label ID="lblName" runat="server" Text='<%# Eval("Name") %>'></asp:Label>
@@ -150,5 +150,12 @@
         </div>
 
     </div>
+
+
+
+
+
+
+
 
 </asp:Content>
