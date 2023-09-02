@@ -6,7 +6,7 @@ using static SchoolManagementSystem.Models.CommonFn;
 
 namespace SchoolManagementSystem.Admin
 {
-    public partial class TeacherSubject : System.Web.UI.Page
+    public partial class Expense : System.Web.UI.Page
     {
         Commonfnx fn = new Commonfnx();
         protected void Page_Load(object sender, EventArgs e)
@@ -22,8 +22,7 @@ namespace SchoolManagementSystem.Admin
             if (!IsPostBack)
             {
                 GetClass();
-                GetTeacher();
-                GetTeacherSubject();
+                GetExpense();
             }
 
         }
@@ -37,25 +36,6 @@ namespace SchoolManagementSystem.Admin
             ddlClass.Items.Insert(0, "Select Class");
         }
 
-        private void GetTeacher()
-        {
-            DataTable dt = fn.Fetch("Select * from Teacher");
-            ddlTeacher.DataSource = dt;
-            ddlTeacher.DataTextField = "Name";
-            ddlTeacher.DataValueField = "TeacherId";
-            ddlTeacher.DataBind();
-            ddlTeacher.Items.Insert(0, "Select Teacher");
-        }
-
-        private void GetTeacherSubject()
-        {
-            DataTable dt = fn.Fetch("Select Row_NUMBER() over(Order by (Select 1)) as [Sr.No]," +
-                " ts.Id, ts.ClassId, c.ClassName,ts.SubjectId,s.SubjectName,ts.TeacherId,t.Name" +
-                " from TeacherSubject ts inner join Class c on ts.ClassId = c.ClassId inner" +
-                " join Subject s on ts.SubjectId = s.SubjectId inner join Teacher t on ts.TeacherId = t.TeacherId");
-            GridView1.DataSource = dt;
-            GridView1.DataBind();
-        }
         protected void ddlClass_SelectedIndexChanged(object sender, EventArgs e)
         {
             string classId = ddlClass.SelectedValue;
@@ -68,29 +48,39 @@ namespace SchoolManagementSystem.Admin
 
         }
 
+        private void GetExpense()
+        {
+            DataTable dt = fn.Fetch("Select Row_NUMBER() over(Order by (Select 1)) as [Sr.No]," +
+                " e.ExpenseId, e.ClassId, c.ClassName,e.SubjectId,s.SubjectName,e.ChargeAmount " +
+                " from Expense e inner join Class c on e.ClassId = c.ClassId inner" +
+                " join Subject s on e.SubjectId = s.SubjectId");
+            GridView1.DataSource = dt;
+            GridView1.DataBind();
+        }
+
         protected void btnAdd_Click(object sender, EventArgs e)
         {
             try
             {
                 string classId = ddlClass.SelectedValue;
                 string subjectId = ddlSubject.SelectedValue;
-                string teacherId = ddlTeacher.SelectedValue;
-                DataTable dt = fn.Fetch("Select * from TeacherSubject where ClassId ='" + classId +
-                                        "' and SubjectId = '" + subjectId + "' or TeacherId ='" + teacherId + "'");
+                string chargeAmount = txtExpenseAmt.Text.Trim();
+                DataTable dt = fn.Fetch("Select * from Expense where ClassId ='" + classId +
+                                        "' and SubjectId = '" + subjectId + "' or ChargeAmount ='" + chargeAmount + "'");
                 if (dt.Rows.Count == 0)
                 {
-                    string query = "Insert into TeacherSubject values('" + classId + "','" + subjectId + "','" + teacherId + "')";
+                    string query = "Insert into Expense values('" + classId + "','" + subjectId + "','" + chargeAmount + "')";
                     fn.Query(query);
                     lblMsg.Text = "Inserted Succesfully!";
                     lblMsg.CssClass = "alert alert-success";
                     ddlClass.SelectedIndex = 0;
                     ddlSubject.SelectedIndex = 0;
-                    ddlTeacher.SelectedIndex = 0;
-                    GetTeacherSubject();
+                    txtExpenseAmt.Text = string.Empty;
+                    GetExpense();
                 }
                 else
                 {
-                    lblMsg.Text = "Entered Teacher Subject already exists ";
+                    lblMsg.Text = "Entered Data already exists ";
                     lblMsg.CssClass = "alert alert-danger";
                 }
             }
@@ -100,28 +90,23 @@ namespace SchoolManagementSystem.Admin
             }
         }
 
-        protected void GridView1_PageIndexChanging(object sender, System.Web.UI.WebControls.GridViewPageEventArgs e)
+        protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             GridView1.PageIndex = e.NewPageIndex;
-            GetTeacherSubject();
+            GetExpense();
         }
 
-        protected void GridView1_RowCancelingEdit(object sender, System.Web.UI.WebControls.GridViewCancelEditEventArgs e)
+        protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-            GridView1.EditIndex = -1;
-            GetTeacherSubject();
-        }
 
-        protected void GridView1_RowDeleting(object sender, System.Web.UI.WebControls.GridViewDeleteEventArgs e)
-        {
             try
             {
-                int teacherSubjectId = Convert.ToInt32(GridView1.DataKeys[e.RowIndex].Values[0]);
-                fn.Query("Delete from TeacherSubject where Id = '" + teacherSubjectId + "'");
-                lblMsg.Text = "Teacher Subject Deleted Succesfully!";
+                int expenseId = Convert.ToInt32(GridView1.DataKeys[e.RowIndex].Values[0]);
+                fn.Query("Delete from Expense where ExpenseId = '" + expenseId + "'");
+                lblMsg.Text = "Expense Deleted Succesfully!";
                 lblMsg.CssClass = "alert alert-success";
                 GridView1.EditIndex = -1;
-                GetTeacherSubject();
+                GetExpense();
             }
             catch (Exception ex)
             {
@@ -129,27 +114,33 @@ namespace SchoolManagementSystem.Admin
             }
         }
 
-        protected void GridView1_RowEditing(object sender, System.Web.UI.WebControls.GridViewEditEventArgs e)
+        protected void GridView1_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
-            GridView1.EditIndex = e.NewEditIndex;
-            GetTeacherSubject();
+            GridView1.EditIndex = -1;
+            GetExpense();
         }
 
-        protected void GridView1_RowUpdating(object sender, System.Web.UI.WebControls.GridViewUpdateEventArgs e)
+        protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+            GridView1.EditIndex = e.NewEditIndex;
+            GetExpense();
+        }
+
+        protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
             try
             {
                 GridViewRow row = GridView1.Rows[e.RowIndex];
-                int teacherSubjectId = Convert.ToInt32(GridView1.DataKeys[e.RowIndex].Values[0]);
+                int expenseId = Convert.ToInt32(GridView1.DataKeys[e.RowIndex].Values[0]);
                 string classId = ((DropDownList)GridView1.Rows[e.RowIndex].Cells[2].FindControl("ddlClassGv")).SelectedValue;
                 string subjectId = ((DropDownList)GridView1.Rows[e.RowIndex].Cells[2].FindControl("ddlSubjectGv")).SelectedValue;
-                string teacherId = ((DropDownList)GridView1.Rows[e.RowIndex].Cells[2].FindControl("ddlTeacherGv")).SelectedValue;
-                fn.Query("Update TeacherSubject set ClassId = '" + classId + "', SubjectId = '" + subjectId + "',TeacherId = '" + teacherId + "'" +
-                    " where Id = '" + teacherSubjectId + "' ");
+                string chargeAmt = (row.FindControl("txtExpenseAmt") as TextBox).Text.Trim();
+                fn.Query("Update Expense set ClassId = '" + classId + "', SubjectId = '" + subjectId + "',ChargeAmount = '" + chargeAmt + "'" +
+                    " where Id = '" + expenseId + "' ");
                 lblMsg.Text = "Record Updated Succesfully!";
                 lblMsg.CssClass = "alert alert-success";
                 GridView1.EditIndex = -1;
-                GetTeacherSubject();
+                GetExpense();
             }
             catch (Exception ex)
             {
@@ -190,9 +181,9 @@ namespace SchoolManagementSystem.Admin
                     ddlSubject.DataValueField = "SubjectId";
                     ddlSubject.DataBind();
                     ddlSubject.Items.Insert(0, "Select Subject");
-                    string teacherSubjectId = GridView1.DataKeys[e.Row.RowIndex].Value.ToString();
-                    DataTable dataTable = fn.Fetch("Select ts.Id, ts.ClassId, ts.SubjectId, s.SubjectName " +
-                        "from TeacherSubject ts innerjoin Subject s on ts.SubjectId = s.SubjectId where ts.Id = '" + teacherSubjectId + "'");
+                    string expenseId = GridView1.DataKeys[e.Row.RowIndex].Value.ToString();
+                    DataTable dataTable = fn.Fetch(" e.ExpenseId, e.ClassId,e.SubjectId,s.SubjectName" +
+                " from Expense e inner join Subject s on e.SubjectId = s.SubjectId where e.ExpenseId = '" + expenseId + "'");
                     ddlSubject.SelectedValue = dataTable.Rows[0]["SubjectId"].ToString();
 
                 }
