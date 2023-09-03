@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/AdminMst.Master" AutoEventWireup="true" CodeBehind="Teacher.aspx.cs" Inherits="SchoolManagementSystem.Admin.Teacher" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/AdminMst.Master" AutoEventWireup="true" CodeBehind="Student.aspx.cs" Inherits="SchoolManagementSystem.Admin.Student" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -8,8 +8,8 @@
         <div class="container p-md-4 p-sm-4">
             <asp:Label ID="lblMsg" runat="server" Text=""></asp:Label>
         </div>
-        <h3 class="text-center">Add Teacher</h3>
-        <div class="row justify-content-center">
+        <h3 class="text-center">Add Student</h3>
+        <div class="row mb-3 mr-lg-5 ml-lg-5 mt-md-5">
             <div class="col-md-6">
                 <label for="txtName">Name</label>
                 <asp:TextBox ID="txtName" runat="server" CssClass="form-control form-control-lg" Style="font-size: 18px;" placeholder="Enter Name" required="True">
@@ -20,14 +20,14 @@
             </div>
         </div>
 
-        <div class="row justify-content-center mt-3">
+        <div class="row mb-3 mr-lg-5 ml-lg-5 mt-md-5">
             <div class="col-md-6">
                 <label for="txtDoB">Date of Birth</label>
                 <asp:TextBox ID="txtDoB" runat="server" CssClass="form-control form-control-lg" Style="font-size: 18px;" TextMode="Date" required="True"></asp:TextBox>
             </div>
         </div>
 
-        <div class="row justify-content-center mt-3">
+        <div class="row mb-3 mr-lg-5 ml-lg-5 mt-md-5">
             <div class="col-md-6">
                 <label for="ddlGender">Gender</label>
                 <asp:DropDownList ID="ddlGender" runat="server" CssClass="form-control form-control-lg" Style="font-size: 18px;">
@@ -42,9 +42,9 @@
             </div>
         </div>
 
-        <div class="row justify-content-center mt-3">
+        <div class="row mb-3 mr-lg-5 ml-lg-5 mt-md-5">
             <div class="col-md-6">
-                <label for="txtMobile">Mobile</label>
+                <label for="txtMobile">Contact Number</label>
                 <asp:TextBox ID="txtMobile" runat="server" CssClass="form-control form-control-lg" Style="font-size: 18px;" TextMode="Number" placeholder="10 Digit Mobile No.">
                 </asp:TextBox>
                 <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="Invalid Mobile Number"
@@ -53,40 +53,43 @@
             </div>
         </div>
 
-        <div class="row justify-content-center mt-3">
+        <div class="row mb-3 mr-lg-5 ml-lg-5 mt-md-5">
             <div class="col-md-6">
-                <label for="txtEmail">Email</label>
-                <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control form-control-lg" Style="font-size: 18px;" placeholder="Enter Email" required="True" TextMode="Email">
+                <label for="txtRoll">Roll Number</label>
+                <asp:TextBox ID="txtRoll" runat="server" CssClass="form-control form-control-lg" Style="font-size: 18px;" placeholder="Enter Email" required="True">
                 </asp:TextBox>
             </div>
         </div>
 
-        <div class="row justify-content-center mt-3">
+        <div class="row mb-3 mr-lg-5 ml-lg-5 mt-md-5">
             <div class="col-md-6">
-                <label for="txtPassword">Password</label>
-                <asp:TextBox ID="txtPassword" runat="server" CssClass="form-control form-control-lg" Style="font-size: 18px;" placeholder="Enter Password" required="True" TextMode="Password"></asp:TextBox>
+                <label for="ddlClass">Class</label>
+                <asp:DropDownList ID="ddlClass" runat="server" CssClass="form-control form-control-lg"></asp:DropDownList>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Class is required"
+                    ControlToValidate="ddlClass" Display="Dynamic" ForeColor="Red" InitialValue="Select Class"
+                    SetFocusOnError="True"></asp:RequiredFieldValidator>
             </div>
         </div>
 
-        <div class="row justify-content-center mt-3">
-            <div class="col-md-6">
+        <div class="row mb-3 mr-lg-5 ml-lg-5 mt-md-5">
+            <div class="col-md-12">
                 <label for="txtAddress">Address</label>
                 <asp:TextBox ID="txtAddress" runat="server" CssClass="form-control form-control-lg" Style="font-size: 18px;" placeholder="Enter Address" required="True" TextMode="MultiLine"></asp:TextBox>
             </div>
         </div>
 
-        <div class="row justify-content-center mt-4">
-            <div class="col-md-6 text-center">
-                <asp:Button ID="btnAdd" runat="server" Text="Add Teacher" CssClass="btn btn-primary btn-lg" BackColor="#5558C9" OnClick="btnAdd_Click" />
+        <div class="row mb-3 mr-lg-5 ml-lg-5 mt-md-5">
+            <div class="col-md-3 col-md-offset-2 mb-3 ">
+                <asp:Button ID="btnAdd" runat="server" Text="Add Student" CssClass="btn btn-primary btn-lg" BackColor="#5558C9" OnClick="btnAdd_Click" />
             </div>
         </div>
 
         <div class="row mb-3 mr-lg-5 ml-lg-5 mt-md-5">
             <div class="col-md-12">
                 <asp:GridView ID="GridView1" runat="server" CssClass="table table-hover table-bordered" EmptyDataText="No record to display!"
-                    AutoGenerateColumns="False" AllowPaging="True" PageSize="4" OnPageIndexChanging="GridView1_PageIndexChanging" DataKeyNames="TeacherId"
+                    AutoGenerateColumns="False" AllowPaging="True" PageSize="4" OnPageIndexChanging="GridView1_PageIndexChanging" DataKeyNames="StudentId"
                     OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowEditing="GridView1_RowEditing"
-                    OnRowUpdating="GridView1_RowUpdating" OnRowDeleting="GridView1_RowDeleting">
+                    OnRowUpdating="GridView1_RowUpdating" OnRowDataBound="GridView1_RowDataBound">
                     <Columns>
                         <asp:BoundField DataField="Sr.No" HeaderText="Sr.No" ReadOnly="True">
                             <ItemStyle HorizontalAlign="Center" />
@@ -101,7 +104,7 @@
                             </ItemTemplate>
                             <ItemStyle HorizontalAlign="Center" />
                         </asp:TemplateField>
-                            <asp:TemplateField HeaderText="Mobile">
+                        <asp:TemplateField HeaderText="Mobile">
                             <EditItemTemplate>
                                 <asp:TextBox ID="txtMobile" runat="server" Text='<%# Eval("Mobile") %>' CssClass="form-control"
                                     Width="100px"></asp:TextBox>
@@ -111,33 +114,36 @@
                             </ItemTemplate>
                             <ItemStyle HorizontalAlign="Center" />
                         </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Email">
-                            <ItemTemplate>
-                                <asp:Label ID="lblEmail" runat="server" Text='<%# Eval("Email") %>'></asp:Label>
-                            </ItemTemplate>
-                            <ItemStyle HorizontalAlign="Center" />
-                        </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Password">
+                        <asp:TemplateField HeaderText="Roll Number">
                             <EditItemTemplate>
-                                <asp:TextBox ID="txtPassword" runat="server" Text='<%# Eval("Password") %>' CssClass="form-control"
+                                <asp:TextBox ID="txtRollNo" runat="server" Text='<%# Eval("RollNo") %>' CssClass="form-control"
                                     Width="100px"></asp:TextBox>
                             </EditItemTemplate>
                             <ItemTemplate>
-                                <asp:Label ID="lblPassword" runat="server" Text='<%# Eval("Password") %>'></asp:Label>
+                                <asp:Label ID="txtRollNo" runat="server" Text='<%# Eval("RollNo") %>'></asp:Label>
                             </ItemTemplate>
                             <ItemStyle HorizontalAlign="Center" />
                         </asp:TemplateField>
-                         <asp:TemplateField HeaderText="Adress">
-                             <EditItemTemplate>
-                                 <asp:TextBox ID="txtAdress" runat="server" Text='<%# Eval("Adress") %>' CssClass="form-control"
-                                     Width="100px"></asp:TextBox>
-                             </EditItemTemplate>
-                             <ItemTemplate>
-                                 <asp:Label ID="lblAdress" runat="server" Text='<%# Eval("Adress") %>'></asp:Label>
-                             </ItemTemplate>
-                             <ItemStyle HorizontalAlign="Center" />
-                         </asp:TemplateField>
-                        <asp:CommandField CausesValidation="false" HeaderText="Operation" ShowEditButton="True" ShowDeleteButton="true">
+                        <asp:TemplateField HeaderText="Class">
+                            <EditItemTemplate>
+                                <asp:DropDownList ID="ddlClass" runat="server"  CssClass="form-control" Width="120px"></asp:DropDownList>
+                            </EditItemTemplate>
+                            <ItemTemplate>
+                                <asp:Label ID="lblClass" runat="server" Text='<%# Eval("ClassName") %>'></asp:Label>
+                            </ItemTemplate>
+                            <ItemStyle HorizontalAlign="Center" />
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Adress">
+                            <EditItemTemplate>
+                                <asp:TextBox ID="txtAdress" runat="server" Text='<%# Eval("Adress") %>' CssClass="form-control"
+                                    Width="170px"></asp:TextBox>
+                            </EditItemTemplate>
+                            <ItemTemplate>
+                                <asp:Label ID="lblAdress" runat="server" Text='<%# Eval("Adress") %>'></asp:Label>
+                            </ItemTemplate>
+                            <ItemStyle HorizontalAlign="Center" />
+                        </asp:TemplateField>
+                        <asp:CommandField CausesValidation="false" HeaderText="Operation" ShowEditButton="True" >
                             <ItemStyle HorizontalAlign="Center" />
                         </asp:CommandField>
                     </Columns>
@@ -147,4 +153,5 @@
         </div>
 
     </div>
+
 </asp:Content>

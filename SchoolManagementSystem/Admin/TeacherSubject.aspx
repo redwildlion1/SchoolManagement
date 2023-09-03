@@ -17,7 +17,7 @@
                     AutoPostBack="true" OnSelectedIndexChanged="ddlClass_SelectedIndexChanged">
                 </asp:DropDownList>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Class is required"
-                    ControlToValidate="ddlClass" Display="Dynamic" FoSubjectreColor="Red" InitialValue="Select Class"
+                    ControlToValidate="ddlClass" Display="Dynamic" ForeColor="Red" InitialValue="Select Class"
                     SetFocusOnError="True"></asp:RequiredFieldValidator>
             </div>
 
@@ -26,7 +26,7 @@
                 <asp:DropDownList ID="ddlSubject" runat="server" CssClass="form-control">
                 </asp:DropDownList>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Subject is required"
-                    ControlToValidate="ddlSubject" Display="Dynamic" FoSubjectreColor="Red" InitialValue="Select Subject" SetFocusOnError="True">
+                    ControlToValidate="ddlSubject" Display="Dynamic" ForeColor="Red" InitialValue="Select Subject" SetFocusOnError="True">
                 </asp:RequiredFieldValidator>
             </div>
 
@@ -35,7 +35,7 @@
                 <asp:DropDownList ID="ddlTeacher" runat="server" CssClass="form-control">
                 </asp:DropDownList>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Teacher is required"
-                    ControlToValidate="ddlTeacher" Display="Dynamic" FoSubjectreColor="Red" InitialValue="Select Teacher" SetFocusOnError="True">
+                    ControlToValidate="ddlTeacher" Display="Dynamic" ForeColor="Red" InitialValue="Select Teacher" SetFocusOnError="True">
                 </asp:RequiredFieldValidator>
             </div>
 

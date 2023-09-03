@@ -44,7 +44,7 @@ namespace SchoolManagementSystem.Admin
                     {
                         string query = "Insert into Teacher values ('" + txtName.Text.Trim() + "'," +
                             " '" + txtDoB.Text.Trim() + "', '" + ddlGender.SelectedValue + "', '" + txtMobile.Text.Trim() + "'," +
-                            " '" + txtEmail.Text.Trim() + "','" + txtAdress.Text.Trim() + "', '" + txtPassword.Text.Trim() + "') ";
+                            " '" + txtEmail.Text.Trim() + "','" + txtAddress.Text.Trim() + "', '" + txtPassword.Text.Trim() + "') ";
                         fn.Query(query);
                         lblMsg.Text = "Inserted Succesfully!";
                         lblMsg.CssClass = "alert alert-success";
@@ -53,7 +53,7 @@ namespace SchoolManagementSystem.Admin
                         txtDoB.Text = string.Empty;
                         txtMobile.Text = string.Empty;
                         txtEmail.Text = string.Empty;
-                        txtAdress.Text = string.Empty;
+                        txtAddress.Text = string.Empty;
                         txtPassword.Text = string.Empty;
                         GetTeachers();
 
@@ -109,6 +109,7 @@ namespace SchoolManagementSystem.Admin
         protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
         {
             GridView1.PageIndex = e.NewEditIndex;
+            GetTeachers();
         }
 
         protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)

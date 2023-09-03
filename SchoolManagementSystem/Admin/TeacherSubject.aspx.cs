@@ -190,10 +190,8 @@ namespace SchoolManagementSystem.Admin
                     ddlSubject.DataValueField = "SubjectId";
                     ddlSubject.DataBind();
                     ddlSubject.Items.Insert(0, "Select Subject");
-                    string teacherSubjectId = GridView1.DataKeys[e.Row.RowIndex].Value.ToString();
-                    DataTable dataTable = fn.Fetch("Select ts.Id, ts.ClassId, ts.SubjectId, s.SubjectName " +
-                        "from TeacherSubject ts innerjoin Subject s on ts.SubjectId = s.SubjectId where ts.Id = '" + teacherSubjectId + "'");
-                    ddlSubject.SelectedValue = dataTable.Rows[0]["SubjectId"].ToString();
+                    string selectedSubject = DataBinder.Eval(e.Row.DataItem, "SubjectName").ToString();
+                    ddlClass.Items.FindByText(selectedSubject).Selected = true;
 
                 }
             }
