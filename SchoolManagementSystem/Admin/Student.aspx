@@ -56,7 +56,7 @@
         <div class="row mb-3 mr-lg-5 ml-lg-5 mt-md-5">
             <div class="col-md-6">
                 <label for="txtRoll">Roll Number</label>
-                <asp:TextBox ID="txtRoll" runat="server" CssClass="form-control form-control-lg" Style="font-size: 18px;" placeholder="Enter Email" required="True">
+                <asp:TextBox ID="txtRoll" runat="server" CssClass="form-control form-control-lg" Style="font-size: 18px;" placeholder="Enter Roll No." required="True">
                 </asp:TextBox>
             </div>
         </div>
