@@ -12,7 +12,7 @@
 
         <div class="row mb-3 mr-lg-5 ml-lg-5 mt-md-5">
             <div class="col-md-6">
-                <label for="txtClass">Class</label>
+                <label for="ddlClass">Class</label>
                 <asp:DropDownList ID="ddlClass" runat="server" CssClass="form-control"
                     AutoPostBack="true" OnSelectedIndexChanged="ddlClass_SelectedIndexChanged">
                 </asp:DropDownList>

@@ -14,7 +14,7 @@
 
           <div class="row mb-3 mr-lg-5 ml-lg-5 mt-md-5">
          <div class="col-md-6">
-             <label for="txtClass">Class Name</label>
+             <label for="ddlClass">Class</label>
              <asp:DropDownList ID="ddlClass" runat="server" CssClass="form-control"></asp:DropDownList>
              <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Class is required" 
                  ControlToValidate="ddlClass" Display="Dynamic" ForeColor="Red" InitialValue="Select Class" SetFocusOnError="True"></asp:RequiredFieldValidator>
