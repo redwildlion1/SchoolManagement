@@ -7,20 +7,20 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SchoolManagementSystem.Admin
+namespace SchoolManagementSystem.Teacher
 {
 
 
-    public partial class MarkDetails
+    public partial class TeacherHome
     {
 
         /// <summary>
-        /// MarksDetail1 control.
+        /// lblMsg control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::SchoolManagementSystem.MarksDetailUserControl MarksDetail1;
+        protected global::System.Web.UI.WebControls.Label lblMsg;
     }
 }

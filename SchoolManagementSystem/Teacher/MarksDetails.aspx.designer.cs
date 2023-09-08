@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SchoolManagementSystem.Admin
+namespace SchoolManagementSystem.Teacher
 {
 
 
-    public partial class MarkDetails
+    public partial class MarksDetails
     {
 
         /// <summary>

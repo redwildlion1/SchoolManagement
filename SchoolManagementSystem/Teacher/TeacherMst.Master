@@ -1,0 +1,121 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="TeacherMst.master.cs" Inherits="SchoolManagementSystem.Teacher.TeacherMst" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>School Management Project</title>
+    <meta charset="UTF-8">
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+
+    <link href="../Content/styles.css" rel="stylesheet" />
+    <link href="../Content/bootstrap.min.css" rel="stylesheet" />
+
+    <script src="../Scripts/popper.min.js"></script>
+    <script src="../Scripts/jquery-3.0.0.min.js"></script>
+    <script src="../Scripts/bootstrap.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const sidebarItems = document.querySelectorAll('.siderbar_menu li');
+            const hamburger = document.querySelector('.hamburger');
+            const wrapper = document.querySelector('.wrapper');
+            const closeAndShadow = document.querySelectorAll('.close, .bg_shadow');
+
+            sidebarItems.forEach(item => {
+                item.addEventListener('click', function () {
+                    sidebarItems.forEach(item => item.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+
+            hamburger.addEventListener('click', function () {
+                wrapper.classList.add('active');
+            });
+
+            closeAndShadow.forEach(element => {
+                element.addEventListener('click', function () {
+                    wrapper.classList.remove('active');
+                });
+            });
+        });
+    </script>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+
+        <div class="wrapper">
+            <div class="sidebar">
+                <div class="bg_shadow"></div>
+                <div class="sidebar_inner">
+                    <div class="close">
+                        <i class="fas fa-times"></i>
+                    </div>
+
+                    <div class="profile_info">
+                        <div class="profile_img">
+                            <img src="../Image/logo.jpg" alt="profile_img">
+                        </div>
+                        <div class="profile_data">
+                            <p class="name">Teacher Module</p>
+                            <span><i class="fas fa-map-marker-alt"></i>Pitesti, Romania</span>
+                        </div>
+                    </div>
+
+                    <ul class="siderbar_menu">
+                        <li>
+                            <a href="../Teacher/TeacherHome.aspx">
+                                <div class="icon"><i class="fas fa-home"></i></div>
+                                <div class="title">Home</div>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="../Teacher/StudentAttendance.aspx">
+                                <div class="icon"><i class="fas fa-calendar-alt"></i></div>
+                                <div class="title">Attendance</div>
+                            </a>
+                        </li>
+                   
+
+                    <li>
+                        <a href="../Teacher/StudAttendanceDetails.aspx">
+                            <div class="icon"><i class="fas fa-address-card"></i></div>
+                            <div class="title">Attendance Details</div>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../Teacher/MarksDetails.aspx">
+                            <div class="icon"><i class="fas fa-clipboard-list"></i></div>
+                            <div class="title">Marks Details</div>
+                        </a>
+                    </li>
+ </ul>
+                    <div class="logout_btn">
+                        <asp:LinkButton ID="btnLogOut" runat="server" CausesValidation="false">Logout</asp:LinkButton>
+                    </div>
+
+                </div>
+            </div>
+            <div class="main_container">
+                <div class="navbar">
+                    <div class="hamburger">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                    <div class="logo">
+                        <a href="#">Bratianu High School</a>
+                    </div>
+                </div>
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+
+            </div>
+        </div>
+
+    </form>
+</body>
+</html>
