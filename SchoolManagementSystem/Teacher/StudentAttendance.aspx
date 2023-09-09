@@ -19,7 +19,7 @@
         </div>
         <h3 class="text-center">Student's Attendance</h3>
 
-        div class="row mb-3 mr-lg-5 ml-lg-5 mt-md-5">
+        <div class="row mb-3 mr-lg-5 ml-lg-5 mt-md-5">
             <div class="col-md-6">
                 <label for="txtClass">Class</label>
                 <asp:DropDownList ID="ddlClass" runat="server" CssClass="form-control"
@@ -38,6 +38,7 @@
                 ControlToValidate="ddlSubject" Display="Dynamic" ForeColor="Red" InitialValue="Select Subject" SetFocusOnError="True">
             </asp:RequiredFieldValidator>
         </div>
+            </div>
     
     <div class="row mb-3 mr-lg-5 ml-lg-5 ">
         <div class="col-md-3 col-md-offset-2 mb-3 ">

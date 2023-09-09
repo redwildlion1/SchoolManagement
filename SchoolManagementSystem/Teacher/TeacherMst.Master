@@ -82,7 +82,7 @@
                    
 
                     <li>
-                        <a href="../Teacher/StudAttendanceDetails.aspx">
+                        <a href="../Teacher/StudentAttendanceDetails.aspx">
                             <div class="icon"><i class="fas fa-address-card"></i></div>
                             <div class="title">Attendance Details</div>
                         </a>
