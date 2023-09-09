@@ -190,6 +190,7 @@
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
     <Content Include="Teacher\MarksDetails.aspx" />
+    <Content Include="Teacher\StudentAttendance.aspx" />
     <Content Include="Teacher\TeacherHome.aspx" />
     <Content Include="Web.config" />
     <Content Include="Scripts\umd\popper.min.js.map" />
@@ -317,6 +318,13 @@
     </Compile>
     <Compile Include="Teacher\MarksDetails.aspx.designer.cs">
       <DependentUpon>MarksDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Teacher\StudentAttendance.aspx.cs">
+      <DependentUpon>StudentAttendance.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Teacher\StudentAttendance.aspx.designer.cs">
+      <DependentUpon>StudentAttendance.aspx</DependentUpon>
     </Compile>
     <Compile Include="Teacher\TeacherHome.aspx.cs">
       <DependentUpon>TeacherHome.aspx</DependentUpon>
