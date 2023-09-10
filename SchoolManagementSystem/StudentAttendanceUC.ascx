@@ -32,7 +32,7 @@
     <div class="row mb-3 mr-lg-5 ml-lg-5 mt-md-5">
         <div class="col-md-6">
             <label for="txtRollNo">RollNo</label>
-            <asp:TextBox ID="txtRollNo" runat="server" CssClass="form-control"></asp:TextBox>
+            <asp:TextBox ID="txtRollNo" runat="server" CssClass="form-control" placeholder="Enter Student RollNo"></asp:TextBox>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="RollNo is required"
                 ControlToValidate="txtRollNo" Display="Dynamic" ForeColor="Red"
                 SetFocusOnError="True"></asp:RequiredFieldValidator>
@@ -40,7 +40,7 @@
 
         <div class="col-md-6">
             <label for="txtMonth">Month</label>
-            <asp:TextBox ID="txtMonth" runat="server" CssClass="form-control"></asp:TextBox>
+            <asp:TextBox ID="txtMonth" runat="server" CssClass="form-control" TextMode="Month"></asp:TextBox>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Month is required"
                 ControlToValidate="txtRollNo" Display="Dynamic" ForeColor="Red"
                 SetFocusOnError="True"></asp:RequiredFieldValidator>

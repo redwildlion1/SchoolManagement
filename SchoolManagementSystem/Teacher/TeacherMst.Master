@@ -41,6 +41,21 @@
         });
     </script>
 
+    <script> $(function () {
+            // this will get the full URL at the address bar 
+     var url = window.location.href;
+
+            // passes on every "a" tag
+            $("#sub-header a").each(function () {
+                // checks if its the same on the address bar
+                if (url == (this.href)) {
+                    $(this).closest("li").addClass("active");
+                }
+
+            });
+        });
+    </script>
+
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -50,7 +65,7 @@
         <div class="wrapper">
             <div class="sidebar">
                 <div class="bg_shadow"></div>
-                <div class="sidebar_inner">
+                <div class="sidebar_inner" id="sub-header">
                     <div class="close">
                         <i class="fas fa-times"></i>
                     </div>
@@ -79,24 +94,24 @@
                                 <div class="title">Attendance</div>
                             </a>
                         </li>
-                   
 
-                    <li>
-                        <a href="../Teacher/StudentAttendanceDetails.aspx">
-                            <div class="icon"><i class="fas fa-address-card"></i></div>
-                            <div class="title">Attendance Details</div>
-                        </a>
-                    </li>
 
-                    <li>
-                        <a href="../Teacher/MarksDetails.aspx">
-                            <div class="icon"><i class="fas fa-clipboard-list"></i></div>
-                            <div class="title">Marks Details</div>
-                        </a>
-                    </li>
- </ul>
+                        <li>
+                            <a href="../Teacher/StudentAttendanceDetails.aspx">
+                                <div class="icon"><i class="fas fa-address-card"></i></div>
+                                <div class="title">Attendance Details</div>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="../Teacher/MarksDetails.aspx">
+                                <div class="icon"><i class="fas fa-clipboard-list"></i></div>
+                                <div class="title">Marks Details</div>
+                            </a>
+                        </li>
+                    </ul>
                     <div class="logout_btn">
-                        <asp:LinkButton ID="btnLogOut" runat="server" CausesValidation="false">Logout</asp:LinkButton>
+                        <asp:LinkButton ID="btnLogOut" runat="server" CausesValidation="false" OnClick="btnLogOut_Click">Logout</asp:LinkButton>
                     </div>
 
                 </div>

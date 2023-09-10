@@ -78,6 +78,7 @@
     <Content Include="Admin\MarkDetails.aspx" />
     <Content Include="Admin\Marks.aspx" />
     <Content Include="Admin\Student.aspx" />
+    <Content Include="Admin\StudentAttendanceDetails.aspx" />
     <Content Include="Admin\Subject.aspx" />
     <Content Include="Admin\Teacher.aspx" />
     <Content Include="Admin\TeacherSubject.aspx" />
@@ -88,6 +89,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\styles.css" />
+    <Content Include="Login.aspx" />
     <Content Include="MarksDetailUserControl.ascx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -284,6 +286,13 @@
     <Compile Include="Admin\Student.aspx.designer.cs">
       <DependentUpon>Student.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\StudentAttendanceDetails.aspx.cs">
+      <DependentUpon>StudentAttendanceDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\StudentAttendanceDetails.aspx.designer.cs">
+      <DependentUpon>StudentAttendanceDetails.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Subject.aspx.cs">
       <DependentUpon>Subject.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -304,6 +313,13 @@
     </Compile>
     <Compile Include="Admin\TeacherSubject.aspx.designer.cs">
       <DependentUpon>TeacherSubject.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="MarksDetailUserControl.ascx.cs">
       <DependentUpon>MarksDetailUserControl.ascx</DependentUpon>

@@ -11,6 +11,10 @@ namespace SchoolManagementSystem.Admin
         Commonfnx fn = new Commonfnx();
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["admin"] == null)
+            {
+                Response.Redirect("../Login.aspx");
+            }
             ScriptManager.ScriptResourceMapping.AddDefinition("jquery", new ScriptResourceDefinition
             {
                 Path = "~/Scripts/jquery-3.0.0.min.js",
