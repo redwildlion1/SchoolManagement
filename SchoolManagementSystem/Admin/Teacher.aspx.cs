@@ -31,7 +31,7 @@ namespace SchoolManagementSystem.Admin
         private void GetTeachers()
         {
             DataTable dt = fn.Fetch(@"Select ROW_NUMBER() OVER(ORDER BY (SELECT 1)) as [Sr.No], TeacherId,
-                                    [Name], DOB, Gender,Mobile,Email,[Adress],[Password] from Teacher");
+                                    [Name], DOB, Gender,Mobile,Email,[Adress] from Teacher");
             GridView1.DataSource = dt;
             GridView1.DataBind();
         }
@@ -40,15 +40,18 @@ namespace SchoolManagementSystem.Admin
         {
             try
             {
+
                 if (ddlGender.SelectedValue != "0")
                 {
                     string email = txtEmail.Text.Trim();
+                    string providedPassword = txtPassword.Text.Trim();
+                    string hashedPassword = PasswordHasher.HashPassword(providedPassword);
                     DataTable dt = fn.Fetch("Select * from Teacher where Email = '" + email + "'");
                     if (dt.Rows.Count == 0)
                     {
                         string query = "Insert into Teacher values ('" + txtName.Text.Trim() + "'," +
                             " '" + txtDoB.Text.Trim() + "', '" + ddlGender.SelectedValue + "', '" + txtMobile.Text.Trim() + "'," +
-                            " '" + txtEmail.Text.Trim() + "','" + txtAddress.Text.Trim() + "', '" + txtPassword.Text.Trim() + "') ";
+                            " '" + email + "','" + txtAddress.Text.Trim() + "', '" + hashedPassword + "') ";
                         fn.Query(query);
                         lblMsg.Text = "Inserted Succesfully!";
                         lblMsg.CssClass = "alert alert-success";
@@ -125,10 +128,11 @@ namespace SchoolManagementSystem.Admin
                 int teacherId = Convert.ToInt32(GridView1.DataKeys[e.RowIndex].Values[0]);
                 string name = (row.FindControl("txtName") as TextBox).Text;
                 string mobile = (row.FindControl("txtMobile") as TextBox).Text;
-                string password = (row.FindControl("txtPassword") as TextBox).Text;
+                string providedPassword = (row.FindControl("txtPassword") as TextBox).Text;
+                string hashedPassword = PasswordHasher.HashPassword(providedPassword);
                 string adress = (row.FindControl("txtAdress") as TextBox).Text;
                 fn.Query("Update Teacher set Name = '" + name.Trim() + "', Mobile = '" + mobile.Trim() + "', " +
-                    "Adress = '" + adress.Trim() + "', Password = '" + password.Trim() + "' where TeacherId = '" + teacherId + "' ");
+                    "Adress = '" + adress.Trim() + "', Password = '" + hashedPassword + "' where TeacherId = '" + teacherId + "' ");
                 lblMsg.Text = "Teacher Updated Succesfully!";
                 lblMsg.CssClass = "alert alert-success";
                 GridView1.EditIndex = -1;

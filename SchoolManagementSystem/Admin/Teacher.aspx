@@ -45,10 +45,10 @@
         <div class="row justify-content-center mt-3">
             <div class="col-md-6">
                 <label for="txtMobile">Mobile</label>
-                <asp:TextBox ID="txtMobile" runat="server" CssClass="form-control form-control-lg" Style="font-size: 18px;" TextMode="Number" placeholder="10 Digit Mobile No.">
+                <asp:TextBox ID="txtMobile" runat="server" CssClass="form-control form-control-lg" Style="font-size: 18px;" TextMode="Number" placeholder="11 Digit Mobile No.">
                 </asp:TextBox>
                 <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="Invalid Mobile Number"
-                    ForeColor="Red" ValidationExpression="^[0-9]{10}" Display="Dynamic" SetFocusOnError="true" ControlToValidate="txtMobile">
+                    ForeColor="Red" ValidationExpression="^[0-9]{11}" Display="Dynamic" SetFocusOnError="true" ControlToValidate="txtMobile">
                 </asp:RegularExpressionValidator>
             </div>
         </div>
@@ -119,11 +119,11 @@
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Password">
                             <EditItemTemplate>
-                                <asp:TextBox ID="txtPassword" runat="server" Text='<%# Eval("Password") %>' CssClass="form-control"
+                                <asp:TextBox ID="txtPassword" runat="server" Text='password' CssClass="form-control"
                                     Width="100px"></asp:TextBox>
                             </EditItemTemplate>
                             <ItemTemplate>
-                                <asp:Label ID="lblPassword" runat="server" Text='<%# Eval("Password") %>'></asp:Label>
+                                <asp:Label ID="lblPassword" runat="server" Text='password'></asp:Label>
                             </ItemTemplate>
                             <ItemStyle HorizontalAlign="Center" />
                         </asp:TemplateField>

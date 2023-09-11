@@ -57,3 +57,13 @@ C:\Users\Trandafir\source\repos\SchoolManagementSystem\SchoolManagementSystem\ob
 C:\Users\Trandafir\source\repos\SchoolManagementSystem\SchoolManagementSystem\obj\Debug\SchoolManagementSystem.csproj.CopyComplete
 C:\Users\Trandafir\source\repos\SchoolManagementSystem\SchoolManagementSystem\obj\Debug\SchoolManagementSystem.dll
 C:\Users\Trandafir\source\repos\SchoolManagementSystem\SchoolManagementSystem\obj\Debug\SchoolManagementSystem.pdb
+C:\Users\Trandafir\source\repos\SchoolManagementSystem\SchoolManagementSystem\bin\BCrypt.Net-Next.dll
+C:\Users\Trandafir\source\repos\SchoolManagementSystem\SchoolManagementSystem\bin\System.Buffers.dll
+C:\Users\Trandafir\source\repos\SchoolManagementSystem\SchoolManagementSystem\bin\System.Memory.dll
+C:\Users\Trandafir\source\repos\SchoolManagementSystem\SchoolManagementSystem\bin\System.Numerics.Vectors.dll
+C:\Users\Trandafir\source\repos\SchoolManagementSystem\SchoolManagementSystem\bin\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Trandafir\source\repos\SchoolManagementSystem\SchoolManagementSystem\bin\BCrypt.Net-Next.xml
+C:\Users\Trandafir\source\repos\SchoolManagementSystem\SchoolManagementSystem\bin\System.Buffers.xml
+C:\Users\Trandafir\source\repos\SchoolManagementSystem\SchoolManagementSystem\bin\System.Memory.xml
+C:\Users\Trandafir\source\repos\SchoolManagementSystem\SchoolManagementSystem\bin\System.Numerics.Vectors.xml
+C:\Users\Trandafir\source\repos\SchoolManagementSystem\SchoolManagementSystem\bin\System.Runtime.CompilerServices.Unsafe.xml
