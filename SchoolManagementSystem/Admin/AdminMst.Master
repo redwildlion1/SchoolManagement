@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
 
-    <link href="../Content/styles.css" rel="stylesheet" />
+    <link href="../Content/master.css" rel="stylesheet" />
     <link href="../Content/bootstrap.min.css" rel="stylesheet" />
 
     <script src="../Scripts/popper.min.js"></script>
@@ -72,7 +72,7 @@
 
                     <div class="profile_info">
                         <div class="profile_img">
-                            <img src="../Image/logo.jpg" alt="profile_img">
+                            <img src="../Image/logo.png" alt="profile_img">
                         </div>
                         <div class="profile_data">
                             <p class="name">Admin Module</p>
@@ -151,10 +151,9 @@
                                 <li><a href="../Admin/EmpAttendanceDetails.aspx" class="active"><i class="fas fa-calendar-check pr-1"></i>Employee Details</a></li>
                             </ul>
                         </li>
+
                     </ul>
-                    <div class="logout_btn">
-                        <asp:LinkButton ID="btnLogOut" runat="server" CausesValidation="false" OnClick="btnLogOut_Click">Logout</asp:LinkButton>
-                    </div>
+                    
 
                 </div>
             </div>
@@ -165,6 +164,9 @@
                     </div>
                     <div class="logo">
                         <a href="#">Bratianu High School</a>
+                    </div>
+                    <div class="logout_btn">
+                        <asp:LinkButton ID="btnLogOut" runat="server" CausesValidation="false" OnClick="btnLogOut_Click">Logout</asp:LinkButton>
                     </div>
                 </div>
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">

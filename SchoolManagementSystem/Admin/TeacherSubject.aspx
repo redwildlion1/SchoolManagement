@@ -75,7 +75,7 @@
 
                         <asp:TemplateField HeaderText="Subject">
                             <EditItemTemplate>
-                                <asp:DropDownList ID="ddlSubjectGv" runat="server" CssClass="form-control" > 
+                                <asp:DropDownList ID="ddlSubjectGv" runat="server" CssClass="form-control"> 
                                 </asp:DropDownList>
                             </EditItemTemplate>
                             <ItemTemplate>

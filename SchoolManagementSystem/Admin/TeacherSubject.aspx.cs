@@ -193,10 +193,9 @@ namespace SchoolManagementSystem.Admin
                     ddlSubject.DataTextField = "SubjectName";
                     ddlSubject.DataValueField = "SubjectId";
                     ddlSubject.DataBind();
-                    ddlSubject.Items.Insert(0, "Select Subject");
+                    ddlClass.Items.Insert(0, "Select Subject");
                     string selectedSubject = DataBinder.Eval(e.Row.DataItem, "SubjectName").ToString();
                     ddlClass.Items.FindByText(selectedSubject).Selected = true;
-
                 }
             }
         }

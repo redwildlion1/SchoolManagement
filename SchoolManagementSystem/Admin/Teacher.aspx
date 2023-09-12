@@ -45,7 +45,7 @@
         <div class="row justify-content-center mt-3">
             <div class="col-md-6">
                 <label for="txtMobile">Mobile</label>
-                <asp:TextBox ID="txtMobile" runat="server" CssClass="form-control form-control-lg" Style="font-size: 18px;" TextMode="Number" placeholder="11 Digit Mobile No.">
+                <asp:TextBox ID="txtMobile" runat="server" CssClass="form-control form-control-lg" Style="font-size: 18px;"  placeholder="11 Digit Mobile No.">
                 </asp:TextBox>
                 <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="Invalid Mobile Number"
                     ForeColor="Red" ValidationExpression="^[0-9]{11}" Display="Dynamic" SetFocusOnError="true" ControlToValidate="txtMobile">
@@ -129,11 +129,11 @@
                         </asp:TemplateField>
                          <asp:TemplateField HeaderText="Adress">
                              <EditItemTemplate>
-                                 <asp:TextBox ID="txtAdress" runat="server" Text='<%# Eval("Adress") %>' CssClass="form-control"
+                                 <asp:TextBox ID="txtAdress" runat="server" Text='<%# Eval("Adress") %>' TextMode="MultiLine" CssClass="form-control"
                                      Width="100px"></asp:TextBox>
                              </EditItemTemplate>
                              <ItemTemplate>
-                                 <asp:Label ID="lblAdress" runat="server" Text='<%# Eval("Adress") %>'></asp:Label>
+                                 <asp:Label ID="lblAdress" runat="server" Text='<%# Eval("Adress") %>' ></asp:Label>
                              </ItemTemplate>
                              <ItemStyle HorizontalAlign="Center" />
                          </asp:TemplateField>

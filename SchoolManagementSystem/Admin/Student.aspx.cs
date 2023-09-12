@@ -25,6 +25,7 @@ namespace SchoolManagementSystem.Admin
 
             if (!IsPostBack)
             {
+
                 GetClass();
                 GetStudents();
             }
@@ -53,7 +54,7 @@ namespace SchoolManagementSystem.Admin
                     {
                         string query = "Insert into Student values ('" + txtName.Text.Trim() + "'," +
                             " '" + txtDoB.Text.Trim() + "', '" + ddlGender.SelectedValue + "', '" + txtMobile.Text.Trim() + "'," +
-                            " '" + txtRoll.Text.Trim() + "','" + txtAddress.Text.Trim() + "', '" + ddlClass.SelectedValue + "') ";
+                            " '" + txtRoll.Text.Trim() + "','" + txtAdress.Text.Trim() + "', '" + ddlClass.SelectedValue + "') ";
                         fn.Query(query);
                         lblMsg.Text = "Inserted Succesfully!";
                         lblMsg.CssClass = "alert alert-success";
@@ -62,7 +63,7 @@ namespace SchoolManagementSystem.Admin
                         txtDoB.Text = string.Empty;
                         txtMobile.Text = string.Empty;
                         txtRoll.Text = string.Empty;
-                        txtAddress.Text = string.Empty;
+                        txtAdress.Text = string.Empty;
                         ddlClass.SelectedIndex = 0;
                         GetStudents();
 
@@ -121,10 +122,10 @@ namespace SchoolManagementSystem.Admin
                 string name = (row.FindControl("txtName") as TextBox).Text;
                 string mobile = (row.FindControl("txtMobile") as TextBox).Text;
                 string rollNo = (row.FindControl("txtRollNo") as TextBox).Text;
-                string adress = (row.FindControl("txtAdress") as TextBox).Text;
+                string address = (row.FindControl("txtAdress") as TextBox).Text;
                 string classId = ((DropDownList)GridView1.Rows[e.RowIndex].Cells[4].FindControl("ddlClass")).SelectedValue;
                 fn.Query("Update Student set Name = '" + name.Trim() + "', Mobile = '" + mobile.Trim() + "', " +
-                    "Adress = '" + adress.Trim() + "', RollNo = '" + rollNo.Trim() + "', ClassId = '" + classId + "' where StudentId = '" + studentId + "' ");
+                    "Adress = '" + address.Trim() + "', RollNo = '" + rollNo.Trim() + "', ClassId = '" + classId + "' where StudentId = '" + studentId + "' ");
                 lblMsg.Text = "Student Updated Succesfully!";
                 lblMsg.CssClass = "alert alert-success";
                 GridView1.EditIndex = -1;
@@ -140,8 +141,9 @@ namespace SchoolManagementSystem.Admin
         {
             if (e.Row.RowType == DataControlRowType.DataRow && GridView1.EditIndex == e.Row.RowIndex)
             {
+
                 DropDownList ddlClass = (DropDownList)e.Row.FindControl("ddlClass");
-                DataTable dt = fn.Fetch("Select * from Class ");
+                DataTable dt = fn.Fetch("Select * from Class where ClassId = '" + ddlClass.SelectedValue + "'");
                 ddlClass.DataSource = dt;
                 ddlClass.DataTextField = "ClassName";
                 ddlClass.DataValueField = "ClassId";
@@ -149,9 +151,6 @@ namespace SchoolManagementSystem.Admin
                 ddlClass.Items.Insert(0, "Select Class");
                 string selectedClass = DataBinder.Eval(e.Row.DataItem, "ClassName").ToString();
                 ddlClass.Items.FindByText(selectedClass).Selected = true;
-
-
-
             }
         }
     }
