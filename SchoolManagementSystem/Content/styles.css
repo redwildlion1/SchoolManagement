@@ -113,8 +113,8 @@ body {
         }
 
 .sidebar .logout_btn a {
-    position: absolute;
-    bottom: 20px;
+    position: relative;
+    display:block;
     left: 20px;
     width: 210px;
     border: 1px solid #fff;
