@@ -30,37 +30,37 @@
                     ControlToValidate="ddlSubject" Display="Dynamic" ForeColor="Red" InitialValue="Select Subject" SetFocusOnError="True">
                 </asp:RequiredFieldValidator>
             </div>
-
-            <div class="col-md-12 mt-2">
+    
+    
+            <div class="col-md-6">
                 <label for="txtRoll">Student Roll Number</label>
                 <asp:TextBox ID="txtRoll" runat="server" CssClass="form-control" placeholder="Enter Roll Number of the Student"
                     required="True">
                 </asp:TextBox>
             </div>
-            <div class="col-md-6 mt-2">
+            <div class="col-md-6 ">
                 <label for="txtStudMarks">Total Marks(Student Marks)</label>
                 <asp:TextBox ID="txtStudMarks" runat="server" CssClass="form-control" placeholder="Enter Total Mark of Student"
                     TextMode="Number" required="True">
                 </asp:TextBox>
             </div>
-
-            <div class="col-md-6 mt-2">
+            
+            <div class="col-md-6 ">
                 <label for="txtOutOfMarks">Out of Marks</label>
                 <asp:TextBox ID="txtOutOfMarks" runat="server" CssClass="form-control" placeholder="Enter the Maximum Mark"
                     TextMode="Number" required="True">
                 </asp:TextBox>
             </div>
-
         </div>
-
-        <div class="row mb-3 mr-lg-5 ml-lg-5 ">
+          <div class="row mb-3 mr-lg-5 ml-lg-5 mt-md-5">
             <div class="col-md-3 col-md-offset-2 mb-3 ">
                 <asp:Button ID="btnAdd" runat="server" CssClass="btn btn-primary btn-block" BackColor="#5558C9" Text="Add Marks"
                     OnClick="btnAdd_Click" />
             </div>
+              </div>
 
          <div class="row mb-3 mr-lg-3 ml-lg-5 ">
-            <div class="col-md-10">
+            <div class="col-md-12">
                 <asp:GridView ID="GridView1" runat="server" CssClass="table table-hover table-bordered" EmptyDataText="No record to display!"
                     AutoGenerateColumns="False" AllowPaging="True" PageSize="4" OnPageIndexChanging="GridView1_PageIndexChanging" DataKeyNames="ExamId"
                     OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowEditing="GridView1_RowEditing"
@@ -144,6 +144,5 @@
         </div>
 
         </div>
-    </div>
 
 </asp:Content>

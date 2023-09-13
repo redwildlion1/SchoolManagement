@@ -25,7 +25,6 @@ namespace SchoolManagementSystem.Admin
 
             if (!IsPostBack)
             {
-
                 GetClass();
                 GetStudents();
             }
@@ -54,7 +53,7 @@ namespace SchoolManagementSystem.Admin
                     {
                         string query = "Insert into Student values ('" + txtName.Text.Trim() + "'," +
                             " '" + txtDoB.Text.Trim() + "', '" + ddlGender.SelectedValue + "', '" + txtMobile.Text.Trim() + "'," +
-                            " '" + txtRoll.Text.Trim() + "','" + txtAdress.Text.Trim() + "', '" + ddlClass.SelectedValue + "') ";
+                            " '" + txtRoll.Text.Trim() + "','" + txtAddress.Text.Trim() + "', '" + ddlClass.SelectedValue + "') ";
                         fn.Query(query);
                         lblMsg.Text = "Inserted Succesfully!";
                         lblMsg.CssClass = "alert alert-success";
@@ -63,7 +62,7 @@ namespace SchoolManagementSystem.Admin
                         txtDoB.Text = string.Empty;
                         txtMobile.Text = string.Empty;
                         txtRoll.Text = string.Empty;
-                        txtAdress.Text = string.Empty;
+                        txtAddress.Text = string.Empty;
                         ddlClass.SelectedIndex = 0;
                         GetStudents();
 
@@ -90,7 +89,7 @@ namespace SchoolManagementSystem.Admin
         private void GetStudents()
         {
             DataTable dt = fn.Fetch(@"Select ROW_NUMBER() OVER(ORDER BY (SELECT 1)) as [Sr.No], s.StudentId,
-                                    s.[Name], DOB, s.Gender,s.Mobile,s.RollNo,s.[Adress], c.ClassId, C.ClassName from Student s inner join Class c on c.ClassId = s.ClassId");
+                                    s.[Name], s.DOB, s.Gender,s.Mobile,s.RollNo, s.[Adress], c.ClassId, C.ClassName from Student s inner join Class c on c.ClassId = s.ClassId");
             GridView1.DataSource = dt;
             GridView1.DataBind();
         }
@@ -143,7 +142,7 @@ namespace SchoolManagementSystem.Admin
             {
 
                 DropDownList ddlClass = (DropDownList)e.Row.FindControl("ddlClass");
-                DataTable dt = fn.Fetch("Select * from Class where ClassId = '" + ddlClass.SelectedValue + "'");
+                DataTable dt = fn.Fetch("Select * from Class ");
                 ddlClass.DataSource = dt;
                 ddlClass.DataTextField = "ClassName";
                 ddlClass.DataValueField = "ClassId";

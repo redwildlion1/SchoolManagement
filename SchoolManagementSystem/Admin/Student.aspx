@@ -73,8 +73,8 @@
 
         <div class="row mb-3 mr-lg-5 ml-lg-5 mt-md-5">
             <div class="col-md-12">
-                <label for="txtAdress">Address</label>
-                <asp:TextBox ID="txtAdress" runat="server" CssClass="form-control form-control-lg" Style="font-size: 18px;" placeholder="Enter Address" required="True" TextMode="MultiLine"></asp:TextBox>
+                <label for="txtAddress">Address</label>
+                <asp:TextBox ID="txtAddress" runat="server" CssClass="form-control form-control-lg" Style="font-size: 18px;" placeholder="Enter Address" required="True" TextMode="MultiLine"></asp:TextBox>
             </div>
         </div>
 
