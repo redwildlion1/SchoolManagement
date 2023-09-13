@@ -54,7 +54,7 @@ namespace SchoolManagementSystem
                 dt = fn.Fetch("Select Row_NUMBER() over(Order by (Select 1)) as [Sr.No], s.Name, sa.Status, sa.Date from StudentAttendance sa " +
                               "inner join Student s on s.RollNo = sa.RollNo where sa.ClassId = '" + ddlClass.SelectedValue + "'" +
                               " and  sa.RollNo = '" + txtRollNo.Text.Trim() + "' and DATEPART(yy, Date) = '" + date.Year + "'" +
-                              " and DATEPART(M, Date) = '" + date.Month + "' and sa.Status = 1");
+                              " and DATEPART(M, Date) = '" + date.Month + "' ");
 
             }
             else
@@ -63,7 +63,7 @@ namespace SchoolManagementSystem
                                "inner join Student s on s.RollNo = sa.RollNo where sa.ClassId = '" + ddlClass.SelectedValue + "'" +
                                " and  sa.RollNo = '" + txtRollNo.Text.Trim() + "'and sa.SubjectId = '" + ddlSubject.SelectedValue + "'" +
                                " and DATEPART(yy, Date) = '" + date.Year + "'" +
-                               " and DATEPART(M, Date) = '" + date.Month + "' and sa.Status = 1");
+                               " and DATEPART(M, Date) = '" + date.Month + "'  ");
             }
             GridView1.DataSource = dt;
             GridView1.DataBind();

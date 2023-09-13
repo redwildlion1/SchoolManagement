@@ -45,9 +45,10 @@
             <asp:Button ID="btnSubmit" runat="server" CssClass="btn btn-primary btn-block" BackColor="#5558C9" Text="Submit"
                 OnClick="btnAdd_Click" />
         </div>
+        </div>
 
         <div class="row mb-3 mr-lg-5 ml-lg-5 ">
-            <div class="col-md-12">
+            <div class="col-md-16 ">
                 <asp:GridView ID="GridView1" runat="server" CssClass="table table-hover table-bordered"
                     EmptyDataText="No Record to display!">
                     <Columns>
@@ -69,11 +70,10 @@
             </div>
         </div>
         <div class="row mb-3 mr-lg-5 ml-lg-5 ">
-            <div class="col-md-6 col-md-offset-2 col-lg-4 col-xl-3 mb-3 ">
+            <div class="col-md-8 col-md-offset-2 col-lg-4 col-xl-3 mb-3 ">
                 <asp:Button ID="btnMarkAttendance" runat="server" Text="Mark Attendace" CssClass="btn btn-primary btn-block"
-                    BackColor="#5558C9"  Width="100%" />
+                    BackColor="#5558C9"  Width="120px" OnClick ="btnMarkAttendance_Click"/>
             </div>
         </div>
     </div>
-</div>
 </asp:Content>

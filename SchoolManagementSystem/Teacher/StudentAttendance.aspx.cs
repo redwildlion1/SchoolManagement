@@ -58,8 +58,7 @@ namespace SchoolManagementSystem.Teacher
         protected void btnAdd_Click(object sender, EventArgs e)
         {
             DataTable dt = fn.Fetch(@"Select StudentId, RollNo, Name,
-                                    Mobile from Student where ClassId = '" + ddlClass.SelectedValue + "' " +
-                                    "and ");
+                                    Mobile from Student where ClassId = '" + ddlClass.SelectedValue + "' ");
             GridView1.DataSource = dt;
             GridView1.DataBind();
             if (dt.Rows.Count > 0)
@@ -73,7 +72,7 @@ namespace SchoolManagementSystem.Teacher
             bool isTrue = false;
             foreach (GridViewRow row in GridView1.Rows)
             {
-                string rollNo = row.Cells[2].Text.Trim();
+                string rollNo = row.Cells[2].Text;
                 RadioButton rb1 = (row.Cells[0].FindControl("RadioButton1") as RadioButton);
                 RadioButton rb2 = (row.Cells[0].FindControl("RadioButton2") as RadioButton);
                 int status = 0;
